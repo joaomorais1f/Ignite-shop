@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { stripe } from "../lib/stripe";
@@ -29,6 +30,10 @@ export default function Home({ products }: HomeProps) {
   })
 
   return (
+  <>
+    <Head>
+      <title> Página Inicial | Ignite Shop </title>
+    </Head>
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map(product => {
         return (
@@ -45,6 +50,7 @@ export default function Home({ products }: HomeProps) {
         )
       })}
     </HomeContainer>
+  </>
   )
 }
 
